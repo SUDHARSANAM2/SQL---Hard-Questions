@@ -1,0 +1,15 @@
+
+Qn no:2 
+
+Show the provinces that has more patients identified as 'M' than 'F'. Must only show full province_name
+
+Solution:
+
+select pn.province_name from patients as p
+join province_names as pn 
+on pn.province_id = p.province_id
+group by pn.province_name
+having 
+  count(case when gender='M' then 1 end) > count(case when gender='F' then 1 end);
+  
+  
